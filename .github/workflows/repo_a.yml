@@ -1,8 +1,14 @@
+name: Pipeline for Repo A
 on:
-  repository_dispatch:
-    types: [repo-a-request]
+  workflow_dispatch:
+    inputs:
+      env:
+        description: "Environment"
+        required: false
+        type: choice
+
 jobs:
-  handle:
+  demo:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Building for Repo A..."
+      - run: echo "Running for ${{ github.event.inputs.env }}"
