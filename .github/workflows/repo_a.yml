@@ -1,14 +1,15 @@
-name: Pipeline for Repo A
+name: Reusable - common pipeline
+
 on:
-  workflow_dispatch:
+  workflow_call:
     inputs:
       env:
         description: "Environment"
-        required: false
-        type: choice
-
+        type: string
 jobs:
   demo:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Running for ${{ github.event.inputs.env }}"
+      - uses: actions/checkout@v4
+      - name: Show inputs
+        run: echo "Running for ${{ inputs.env }}"
