@@ -1,0 +1,9 @@
+on:
+  repository_dispatch:
+    types: [repo-b-request]
+jobs:
+  handle:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Building for Repo B..."
+      - run: echo "Env: ${{ github.event.client_payload.env }}"
