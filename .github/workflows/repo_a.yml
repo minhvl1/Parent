@@ -6,4 +6,3 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Building for Repo A..."
-      - run: echo "Env: ${{ github.event.client_payload.env }}"
